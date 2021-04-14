@@ -20,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::resource('mahasiswas', MahasiswaController::class);
+Route::post('cari',[CariController::class,'search']);
+Route::get('nilai/{nim}',[MahasiswaController::class,'nilai']);

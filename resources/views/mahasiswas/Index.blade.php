@@ -64,10 +64,12 @@
         <td>{{ $Mahasiswa->Email }}</td>
         <td>{{ $Mahasiswa->Tanggal_Lahir }}</td>
         <td>
-        <form action="{{ route('mahasiswas.destroy',$Mahasiswa->Nim) }}" method="POST">
+        <form action="{{route('mahasiswa.destroy',['mahasiswa'=>$mahasiswa->id])}}"method="POST">
 
-            <a class="btn btn-info" href="{{ route('mahasiswas.show',$Mahasiswa->Nim) }}">Show</a>
-            <a class="btn btn-primary" href="{{ route('mahasiswas.edit',$Mahasiswa->Nim) }}">Edit</a>
+        <a class="btn btn-info"href="{{route('mahasiswa.show',['mahasiswa'=>$mahasiswa->id])}}">Show</a>
+        <a class="btn btn-primary"href="{{route('mahasiswa.edit',['mahasiswa'=>$mahasiswa->id])}}">Edit</a>
+
+        <a class="btn btn-warning"href="{{url('nilai/'.$mahasiswa->id)}}">Nilai</a>
             @csrf 
             @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>

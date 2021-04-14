@@ -139,7 +139,7 @@ class MahasiswaController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     *    
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -149,6 +149,14 @@ class MahasiswaController extends Controller
             Mahasiswa::find($Nim)->delete();
             return redirect()->route('mahasiswas.index')
                 -> with('success', 'Mahasiswa Berhasil Dihapus');
-    
+
+    }
+
+    public function nilai($nim)
+    {
+        $mhs = Mahasiswa::find($nim);
+        //$jajal = $mhs->matakuliah;
+        //$kelas = $mhs->kelas->nama_kelas;
+         return view('mahasiswas.nilai',compact('mhs'));
     }
 }
